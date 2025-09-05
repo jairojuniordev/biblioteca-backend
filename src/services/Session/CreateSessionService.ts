@@ -26,7 +26,7 @@ export default class CreateSessionService {
     const jwtSecret = process.env.JWT_SECRET || '';
 
     const token = jwt.sign({ userId: user.id }, jwtSecret, {
-      expiresIn: '2m',
+      expiresIn: '1d',
     });
 
     return { token, user: { ...user, password: undefined } };

@@ -9,6 +9,15 @@ export default class CreateBookService {
       throw new Error('titulo e url da image são obrigatórios!');
     }
 
+    const bookIsExists = !!await this.bookReposioty.findByTitle({
+      title,
+      authorId
+    });
+
+    if (bookIsExists) {
+      throw new Error('Você já possui um livro com esse titulo');
+    }
+
     try {
       const book = await this.bookReposioty.create({
         title, authorId, imageUrl

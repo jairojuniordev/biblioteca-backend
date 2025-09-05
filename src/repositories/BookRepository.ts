@@ -1,12 +1,22 @@
-import { CreateBookData, IBookRepository } from 'interfaces/IBookRepository';
+import { CreateBookData, findBoookData, IBookRepository } from 'interfaces/IBookRepository';
 import { prisma } from '../database/prisma';
 
 class BookRepository implements IBookRepository {
   async create(bookData: CreateBookData) {
-    const user = await prisma.book.create({
+    const book = await prisma.book.create({
       data: { ...bookData },
     });
-    return user;
+    return book;
+  }
+
+  async findByTitle({ title, authorId }: findBoookData) {
+    const book = await prisma.book.findFirst({
+      where: {
+        authorId,
+        title
+      }
+    });
+    return book;
   }
 }
 
