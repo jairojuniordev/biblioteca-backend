@@ -1,0 +1,27 @@
+{
+  "name": "biblioteca-backend",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "repository": "git@github.com:jairojuniordev/snow-shop-api.git",
+  "author": "jairojuniordev <dev.jairojunior@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx prisma migrate dev && tsx watch src/app.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.15.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "prisma": "^6.15.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
