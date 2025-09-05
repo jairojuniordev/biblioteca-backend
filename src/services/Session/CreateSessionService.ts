@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import { IUserRepository } from 'interfaces/IUserRepository';
 
 export default class CreateSessionService {
-  constructor(private userRepository: IUserRepository) {}
+  constructor(private userRepository: IUserRepository) { }
 
   async execute({ email, password }: { email: string; password: string }) {
     if (!email || !password) {
